@@ -22,3 +22,5 @@ blocks:
       env_vars:
         - name: APP_ENV
           value: local
+        - name: APP_KEY
+          value: 'base64:KuoAPf+X5CMa7XOBLrDMrlzSmoRO2ZZ3CAu11nV6NA0='
