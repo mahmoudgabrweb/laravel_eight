@@ -19,3 +19,6 @@ blocks:
             - mkdir -p database
             - touch database/database.sqlite
             - ./vendor/bin/phpunit
+      env_vars:
+        - name: APP_ENV
+          value: local
