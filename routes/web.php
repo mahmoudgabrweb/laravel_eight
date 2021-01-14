@@ -51,3 +51,7 @@ Route::get('login/github/callback', [LoginController::class, 'handleProviderCall
 Route::get("alpha", function() {
     return view("alpha");
 });
+
+Route::get('beta', function () {
+   return view("beta");
+});
