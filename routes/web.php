@@ -1,11 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Mail\OrderShipped;
-use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +15,7 @@ use Illuminate\Support\Facades\Redis;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     // Redis::set("name", "Gabr");
@@ -34,7 +33,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-
 // Route::get("dump", function() {
 //     $user = User::orderBy("id", "asc")->first();
 //     $user2 = User::orderBy("id", "desc")->first();
@@ -48,10 +46,18 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('login/github', [LoginController::class, 'redirectToProvider']);
 Route::get('login/github/callback', [LoginController::class, 'handleProviderCallback']);
 
-Route::get("alpha", function() {
+Route::get("alpha", function () {
     return view("alpha");
 });
 
 Route::get('beta', function () {
-   return view("beta");
+    return view("beta");
+});
+
+Route::get('visit-form', function () {
+    return view("test-form");
+});
+
+Route::post('visit-form', function (Request $request) {
+    dd($request->all());
 });
