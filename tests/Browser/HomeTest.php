@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
-class AlphaTest extends DuskTestCase
+class HomeTest extends DuskTestCase
 {
     /**
      * A Dusk test example.
@@ -16,10 +16,8 @@ class AlphaTest extends DuskTestCase
     public function testExample()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/alpha')
-                    ->assertSee('web')
-                    ->clickLink("Next")
-                    ->assertPathIs("/beta");
+            $browser->visit('/')
+                    ->assertSee('Laravel');
         });
     }
 }

@@ -39,7 +39,7 @@
                     </a>
                 @endif
 
-                <x-jet-button class="ml-4">
+                <x-jet-button class="ml-4" name="login">
                     {{ __('Login') }}
                 </x-jet-button>
                 <a href="/login/github" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold 
