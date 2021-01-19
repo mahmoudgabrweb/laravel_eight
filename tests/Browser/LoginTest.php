@@ -16,11 +16,11 @@ class LoginTest extends DuskTestCase
     public function testExample()
     {
         $user = User::where("email", "taylor@laravel.com")->first();
-        if(!$user) {
+        if (!$user) {
             $user = User::factory()->create([
                 "email" => "taylor@laravel.com",
             ]);
-        }        
+        }
 
         $this->browse(function (Browser $browser) use ($user) {
             $browser->visit('/login')
