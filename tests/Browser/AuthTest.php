@@ -21,7 +21,9 @@ class AuthTest extends DuskTestCase
                 ->type("password", "password")
                 ->type("password_confirmation", "password")
                 ->click("button[type=submit]")
-                ->assertSee('Welcome to your Jetstream application');
+                ->assertSee('Welcome to your Jetstream application')
+                ->click("#navbar-dropdown")
+                ->clickLink("Logout");
         });
     }
 }
