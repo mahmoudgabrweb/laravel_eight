@@ -63,7 +63,8 @@ class CarController extends Controller
      */
     public function edit($id)
     {
-        //
+        $car = Car::find($id);
+        return view('cars.edit', compact('car', 'id'));
     }
 
     /**
@@ -75,7 +76,12 @@ class CarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $car = Car::find($id);
+        $car->car_company = $request->get('car_company');
+        $car->model = $request->get('model');
+        $car->price = $request->get('price');
+        $car->save();
+        return redirect('cars')->with('success', 'Car has been successfully update');
     }
 
     /**
@@ -86,6 +92,8 @@ class CarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $car = Car::find($id);
+        $car->delete();
+        return redirect('cars')->with('success', 'Car has been deleted');
     }
 }

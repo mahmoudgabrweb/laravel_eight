@@ -12,36 +12,37 @@
 
 <body>
     <div class="container">
-        <h2></h2><br />
+        <h2>Edit A Form</h2><br />
         <div class="container">
         </div>
-        <form method="post" action="{{ url('cars') }}">
+        <form method="post" action="{{ url("cars/$id") }}">
             @csrf
+            <input type="hidden" name="_method" value="PUT">
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="form-group col-md-4">
                     <label for="car_company">Car Company:</label>
-                    <input type="text" class="form-control" name="car_company">
+                    <input type="text" class="form-control" name="car_company" value="{{ $car->car_company }}">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="form-group col-md-4">
                     <label for="Model">Model:</label>
-                    <input type="text" class="form-control" name="model">
+                    <input type="text" class="form-control" name="model" value="{{ $car->model }}">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="form-group col-md-4">
                     <label for="Price">Price:</label>
-                    <input type="text" class="form-control" name="price">
+                    <input type="text" class="form-control" name="price" value="{{ $car->price }}">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="form-group col-md-4">
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">Update</button>
                 </div>
             </div>
         </form>

@@ -18,6 +18,7 @@
                 <p>{{ \Session::get('success') }}</p>
             </div><br />
         @endif
+        <a href="{{ url("cars/create") }}" class="btn btn-info">Create New</a>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -37,14 +38,14 @@
                         <td>{{ $car->model }}</td>
                         <td>{{ $car->price }}</td>
                         <td>
-                            <a href="" class="btn btn-warning">Edit</a>
+                            <a href="{{ url("cars/$car->id/edit") }}" class="btn btn-warning">Edit</a>
                         </td>
                         <td>
-                            {{-- <form action="{{ action('CarController@destroy', $car->id) }}" method="post">
+                            <form action="{{ url("cars/$car->id") }}" method="post">
                                 @csrf
                                 <input name="_method" type="hidden" value="DELETE">
                                 <button class="btn btn-danger" type="submit">Delete</button>
-                            </form> --}}
+                            </form>
                         </td>
                     </tr>
                 @endforeach
