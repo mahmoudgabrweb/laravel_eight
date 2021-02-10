@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\PostController;
 use App\Mail\OrderShipped;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -61,3 +63,7 @@ Route::get('visit-form', function () {
 Route::post('visit-form', function (Request $request) {
     dd($request->all());
 });
+
+Route::resource('cars', CarController::class);
+
+Route::resource('posts', PostController::class);
