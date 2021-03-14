@@ -19,11 +19,11 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
+Route::get('/{any?}', function () {
     // Redis::set("name", "Gabr");
     // $name = Redis::get("name");
     // dd($name);
-    return view('welcome');
+    return view('vue');
 });
 
 Route::post('send-mail', function () {
